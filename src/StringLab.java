@@ -1,6 +1,6 @@
 /**
  * String & Methods Lab
- * 
+ *
  * @author Brendan
  */
 public class StringLab {
@@ -14,8 +14,27 @@ public class StringLab {
         letterize("Java"); //prints J a v a (new line for each)
         System.out.println(firstThingsFirst("tree", "pine")); //prints pine tree
         System.out.println(firstThingsFirst("cat", "dog")); //prints cat dog
-        afterMath("She aced the mathematics test!"); //prints mathematics test!
-        afterMath("My floor mat is so keen!"); //prints dud
+        System.out.println(afterMath("She aced the mathematics test!")); //prints mathematics test!
+        System.out.println(afterMath("My floor mat is so keen!")); //prints dud
+        System.out.println(camelCase("desert survival skills"));
+    }
+
+    /**
+     * Takes a phrase and converts it to one word in camelCase.
+     * (e.g. "desert survival skills" -> "desertSurvivalSkills")
+     *
+     * @param phrase The input phrase to convert
+     * @return The input phrase in camelCase
+     */
+    public static String camelCase(String phrase) {
+        StringBuilder out = new StringBuilder();
+        if (phrase.split(" ").length > 0) {
+            for (String s : phrase.split(" ")) {
+                out.append(capitalize(s));
+            }
+        }
+
+        return out.toString().substring(0, 1).toLowerCase() + out.substring(1);
     }
 
     /**
@@ -24,9 +43,9 @@ public class StringLab {
      *
      * @param phrase Input phrase
      */
-    public static void afterMath(String phrase) {
+    public static String afterMath(String phrase) {
         int math = phrase.toLowerCase().indexOf("math");
-        System.out.println(math == -1 ? "dud" : phrase.substring(math));
+        return math == -1 ? "dud" : phrase.substring(math);
     }
 
     /**
@@ -83,7 +102,7 @@ public class StringLab {
 
     /**
      * Takes a word and prints it out with the first letter capitalized and all other letters lowercase
-     * 
+     *
      * @param word Input word to capitalize
      * @return The word with the first letter capitalized and all the remaining letters lowercase
      */
