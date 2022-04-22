@@ -9,14 +9,14 @@ public class StringLab {
         System.out.println(capitalize("blAZes")); //prints Blazes
         System.out.println(wheresWaldo("Striped Waldo!")); //prints 8
         System.out.println(reverse("happy")); //prints yppah
-        soLong("bean", "pea"); //prints bean
-        soLong("tart", "trap"); //prints tart trap
-        letterize("Java"); //prints J a v a (new line for each)
+        System.out.println(soLong("bean", "pea")); //prints bean
+        System.out.println(soLong("tart", "trap")); //prints tart trap
+        System.out.println(letterize("Java")); //prints J a v a (new line for each)
         System.out.println(firstThingsFirst("tree", "pine")); //prints pine tree
         System.out.println(firstThingsFirst("cat", "dog")); //prints cat dog
         System.out.println(afterMath("She aced the mathematics test!")); //prints mathematics test!
         System.out.println(afterMath("My floor mat is so keen!")); //prints dud
-        System.out.println(camelCase("desert survival skills"));
+        System.out.println(camelCase("desert survival skills")); //desertSurvivalSkills
     }
 
     /**
@@ -64,8 +64,8 @@ public class StringLab {
      * @param a First string to compare
      * @param b Seocond string to compare
      */
-    public static void soLong(String a, String b) {
-        System.out.println(a.length() == b.length() ? a + " " + b : a.length() > b.length() ? a : b);
+    public static String soLong(String a, String b) {
+        return a.length() == b.length() ? a + " " + b : a.length() > b.length() ? a : b;
     }
 
     /**
@@ -73,10 +73,12 @@ public class StringLab {
      *
      * @param word Input word to print each character from
      */
-    public static void letterize(String word) {
+    public static String letterize(String word) {
+    	StringBuilder output = new StringBuilder();
         for (char c : word.toCharArray()) {
-            System.out.println(c);
+            output.append(c + " ");
         }
+        return output.toString().substring(0, output.length() - 1);
     }
 
     /**
